@@ -1,15 +1,14 @@
+#include <stdio.h>
 #include "main.h"
+/* Prototype de la fonction print_alphabet */
+void print_alphabet(void);
 /**
- * main - Entry point
+ * main - point d'entrée du programme
  *
- * Return: Always 0 (Success)
+ * Return: 0 en cas de succès
  */
 int main(void)
 {
 print_alphabet();
 return (0);
-#ifndef MAIN_H
-#define MAIN_H
-int _putchar(char c);
-void print_alphabet(void);
 }
