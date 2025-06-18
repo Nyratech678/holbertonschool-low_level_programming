@@ -1,12 +1,28 @@
 #include "main.h"
-#include <stdio.h>
+
+/**
+ * print_number - prints an integer using only putchar
+ * @n: integer to print
+ */
+void print_number(int n)
+{
+	if (n < 0)
+	{
+		_putchar('-');
+		n = -n;
+	}
+	if (n / 10)
+	{
+		print_number(n / 10);
+	}
+	_putchar((n % 10) + '0');
+}
 
 /**
  * print_times_table - prints the n times table, starting with 0
- * @n: the number of the times table to print (must be between 0 and 15)
+ * @n: the number of the times table to print
  *
- * Description: Prints the times table up to n. Each number is right-aligned
- * in a field of 3 spaces. If n is out of range, the function does nothing.
+ * Description: Only uses putchar to print.
  */
 void print_times_table(int n)
 {
@@ -16,7 +32,6 @@ void print_times_table(int n)
 	{
 		return;
 	}
-
 	for (i = 0; i <= n; i++)
 	{
 		for (j = 0; j <= n; j++)
@@ -24,13 +39,25 @@ void print_times_table(int n)
 			product = i * j;
 			if (j == 0)
 			{
-				printf("%d", product);
+				print_number(product);
 			}
 			else
 			{
-				printf(", %3d", product);
+				_putchar(',');
+				_putchar(' ');
+				/* Print spaces for alignment */
+				if (product < 10)
+				{
+					_putchar(' ');
+					_putchar(' ');
+				}
+				else if (product < 100)
+				{
+					_putchar(' ');
+				}
+				print_number(product);
 			}
 		}
-		printf("\n");
+		_putchar('\n');
 	}
 }
