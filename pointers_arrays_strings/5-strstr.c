@@ -1,12 +1,13 @@
 #include "main.h"
 #include <stddef.h>
+
 /**
- * _strstr - locates a substring
- * @haystack: the string to search in
- * @needle: the substring to search for
+ * _strstr - Locates a substring.
+ * @haystack: The string to search in.
+ * @needle: The substring to search for.
  *
- * Return: pointer to the beginning of the located substring,
- * or NULL if the substring is not found
+ * Return: Pointer to the beginning of the located substring,
+ *         or NULL if the substring is not found.
  */
 char *_strstr(char *haystack, char *needle)
 {
@@ -18,7 +19,6 @@ char *_strstr(char *haystack, char *needle)
 	while (*haystack)
 	{
 		i = 0;
-
 		if (haystack[i] == needle[i])
 		{
 			do {
@@ -29,5 +29,5 @@ char *_strstr(char *haystack, char *needle)
 		}
 		haystack++;
 	}
-	return ('\0');
+	return (NULL);
 }
