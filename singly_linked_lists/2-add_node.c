@@ -1,21 +1,32 @@
 #include "lists.h"
 #include <stdlib.h>
+#include <string.h>
+
 /**
-  * add_nodeint - add new nodes to the list
-  * @head: current place in the list
-  * @n: int to add to the list
-  * Return: pointer to current position in list
-  */
-list_t *add_nodeint(list_t **head, const int n)
+* add_node - ajoute un nouveau noeud au début d'une list_t
+* @head: adresse du pointeur vers la tête de la liste
+* @str: chaîne à dupliquer et à ajouter à la liste
+*
+* Return: adresse du nouveau noeud ou NULL en cas d'échec
+*/
+list_t *add_node(list_t **head, const char *str)
 {
 	list_t *new;
 
-	new = *head;
 	new = malloc(sizeof(list_t));
 	if (new == NULL)
 		return (NULL);
-	new->str = strdup(n);
+
+	new->str = strdup(str);
+	if (new->str == NULL)
+	{
+		free(new);
+		return (NULL);
+	}
+
 	new->next = *head;
 	*head = new;
-	return (*head);
+
+	return (new);
 }
+
