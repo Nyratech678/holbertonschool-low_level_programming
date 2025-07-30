@@ -1,0 +1,1 @@
+The life is so bored and might
