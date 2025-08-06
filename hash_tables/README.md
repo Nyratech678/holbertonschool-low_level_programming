@@ -1,0 +1,1 @@
+I’m not someone you push around with a gun. I am the gun.
