@@ -11,8 +11,8 @@
 void print_all(const char * const format, ...)
 {
 	va_list ap;
-	unsigned int i = 0, j = 0;
-	char *str;
+	unsigned int i = 0;
+	char *str, *separator = "";
 
 	va_start(ap, format);
 	while (format && format[i])
@@ -20,24 +20,23 @@ void print_all(const char * const format, ...)
 		switch (format[i])
 		{
 			case 'c':
-				printf("%c", va_arg(ap, int));
-				j = 1;
+				printf("%s%c", separator, va_arg(ap, int));
+				separator = ", ";
 				break;
 			case 'i':
-				printf("%d", va_arg(ap, int));
-				j = 1;
+				printf("%s%d", separator, va_arg(ap, int));
+				separator = ", ";
 				break;
 			case 'f':
-				printf("%f", va_arg(ap, double));
-				j = 1;
+				printf("%s%f", separator, va_arg(ap, double));
+				separator = ", ";
 				break;
 			case 's':
 				str = va_arg(ap, char *);
-				printf("%s", str ? str : "(nil)");
-				j = 1;
+				printf("%s%s", separator, str ? str : "(nil)");
+				separator = ", ";
 				break;
 		}
-		(j && format[i + 1]) ? printf(", ") : 0;
 		i++;
 	}
 	printf("\n");
